@@ -12,49 +12,43 @@ const { generateWAMessageFromContent, proto } = (await import('@adiwajshing/bail
 
 const defaultMenu = {
   before: `
-╭─────═[ INFO USER ]═─────⋆
-│╭───────────────···
-┴│☂︎ *Name:* %name
-⬡│☂︎ *Tag:* %tag
-⬡│☂︎ *Premium:* %prems
-⬡│☂︎ *Limit:* %limit
-⬡│☂︎ *Money:* %money
-⬡│☂︎ *Role:* %role
-⬡│☂︎ *Level:* %level [ %xp4levelup Xp For Levelup]
-⬡│☂︎ *Xp:* %exp / %maxexp
-┬│☂︎ *Total Xp:* %totalexp
-│╰────────────────···
-┠─────═[ TODAY ]═─────⋆
-│╭────────────────···
-┴│    *${ucapan()} %name!*
-⬡│☂︎ *Tanggal:* %week %weton
-⬡│☂︎ *Date:* %date
-⬡│☂︎ *Tanggal Islam:* %dateIslamic
-┬│☂︎ *Waktu:* %time
-│╰────────────────···
-┠─────═[ INFO BOT ]═─────⋆
-│╭────────────────···
-┴│☂︎ *Nama Bot:* %me
-⬡│☂︎ *Mode:* %mode
-⬡│☂︎ *Prefix:* [ *%_p* ]
-⬡│☂︎ *Baileys:* Multi Device
-⬡│☂︎ *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 pengisian' : ''}` : 'tidak diketahui'}
-⬡│☂︎ *Platform:* %platform
-⬡│☂︎ *Type:* Node.Js
-⬡│☂︎ *Uptime:* %muptime
-┬│☂︎ *Database:* %rtotalreg dari %totalreg
-│╰────────────────···
-╰──────────═┅═──────────
+─═[ INFO USER ]═─
+〆 *Name:* %name
+〆 *Tag:* %tag
+〆 *Premium:* %prems
+〆 *Limit:* %limit
+〆 *Money: *%money
+〆 *Role:* %role
+〆 *Level:* %level
+〆 *Exp:* %exp / %maxexp
+〆 *Total Exp:* %totalexp
 
-⃝▣──「 *INFO CMD* 」───⬣
+─═[ TODAY ]═─
+〆 *Tanggal:* %week %weton
+〆 *Date:* %date
+〆 *Tanggal Islam:* %dateIslamic
+〆 *Waktu:* %time
+
+─═[ INFO BOT ]═─
+〆 *Nama Bot:* %me
+〆 *Mode:* %mode
+〆 *Prefix:* [ *%_p* ]
+〆 *Baileys:* Multi Device
+〆 *Platform:* %platform
+〆 *Type:* Node.Js
+〆 *Uptime:* %muptime
+〆 *Database:* %rtotalreg dari %totalreg
+
+
+❐──「 *INFO CMD* 」───❐
 │ *Ⓟ* = Premium
 │ *Ⓛ* = Limit
-▣────────────⬣
+❐────────────❐
 %readmore
 `.trimStart(),
-  header: '⃝▣──「 %category 」───⬣',
+  header: '❐──「 %category 」───❐',
   body: '│○ %cmd %isPremium %islimit',
-  footer: '▣───────────⬣\n',
+  footer: '❐───────────❐\n',
   after: `%c4 %me`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
